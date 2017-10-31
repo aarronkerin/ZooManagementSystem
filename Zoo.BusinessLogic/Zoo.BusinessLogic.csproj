@@ -42,7 +42,9 @@
   <ItemGroup>
     <Compile Include="Config.cs" />
     <Compile Include="Models\Animals\Animal.cs" />
+<<<<<<< Updated upstream
     <Compile Include="Models\Animals\AnimalThatCanBeGroomed.cs" />
+    <Compile Include="Models\Animals\AnimalThatCanBeGroomed1.cs" />
     <Compile Include="Models\Animals\Lion.cs" />
     <Compile Include="Models\Animals\Zebra.cs" />
     <Compile Include="Models\Animals\Rabbit.cs" />
