@@ -30,6 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Services\IScheduler.cs" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,9 +41,9 @@
     <Reference Include="System.Xml" />
     <Compile Include="Config.cs" />
     <Compile Include="Models\Animals\Animal.cs" />
-    <Compile Include="Models\Animals\AnimalThatCanBeGroomed.cs" />
     <Compile Include="Models\Animals\Giraffe.cs" />
     <Compile Include="Models\Animals\ICanBeCleanedOut.cs" />
+    <Compile Include="Models\Animals\ICanBeGroomed.cs" />
     <Compile Include="Models\Animals\Lion.cs" />
     <Compile Include="Models\Animals\Penguin.cs" />
     <Compile Include="Models\Animals\Zebra.cs" />

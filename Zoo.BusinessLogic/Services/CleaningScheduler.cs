@@ -25,23 +25,28 @@ namespace Zoo.BusinessLogic.Services
             }
         }
 
-        private CleaningScheduler()
-        {
-        }
-
         public void AssignCleaningJobs(IEnumerable<Keeper> keepers, IEnumerable<Animal> animals)
         {
             foreach (var keeper in keepers)
             {
                 foreach (var animal in keeper.GetResponsibleAnimals())
                 {
-                    if (animal.IsHungry())
+                    var cleanableAnimal = animal as ICanBeCleanedOut;
+
+                    if (cleanableAnimal !=null)
                     {
-                        keeper.FeedAnimal(animal);
+                        keeper.CleanAnimal(cleanableAnimal);
                     }
                 }
             }
         }
+
+        public void display()
+        {
+            Console.WriteLine("Mucking out the animals..");
+        }
+    
     }
 }
-    
+
+   

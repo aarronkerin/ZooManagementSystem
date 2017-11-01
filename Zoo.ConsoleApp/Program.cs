@@ -38,21 +38,18 @@ namespace Zoo.ConsoleApp
       var groomingScheduler = GroomingScheduler.Instance;
       var cleanScheduler = CleaningScheduler.Instance;
 
+      List<IScheduler> Schedules = new List<IScheduler>() { feedingScheduler, groomingScheduler, cleanScheduler };
+
       while (true)
       {
-       
-        Console.WriteLine("Feeding the animals...");
-        feedingScheduler.AssignFeedingJobs(keepers, animals);
 
-        Console.WriteLine("Cleaning the animals...");
-        cleanScheduler.AssignCleaningJobs(keepers, animals);
-
-        Console.WriteLine("Grooming the animals...");
-        groomingScheduler.AssignGroomingJobs(keepers, animals);
-
-        Console.WriteLine("Done. Results:");
-
-        foreach (var animal in animals)
+          foreach (var schedule in Schedules)
+          {
+              schedule.display();
+              schedule.AssingJobs(keepers, animals);
+          }
+          Console.WriteLine("Completed");
+          foreach (var animal in animals)
         {
           Console.WriteLine(animal);
         }
