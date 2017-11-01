@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.Remoting.Messaging;
 
 namespace Zoo.BusinessLogic.Models.Animals
 {
@@ -6,6 +7,7 @@ namespace Zoo.BusinessLogic.Models.Animals
   {
     private readonly DateTime dateOfBirth;
     private DateTime lastFed;
+    private DateTime clean;
 
     protected Animal(DateTime dateOfBirth)
     {
@@ -17,6 +19,10 @@ namespace Zoo.BusinessLogic.Models.Animals
       get { return DateTime.Today - dateOfBirth; }
     }
 
+      public DateTime LastCleaned
+      {
+          get { return clean; }
+      }
     public DateTime LastFed
     {
       get { return lastFed; }
@@ -34,9 +40,16 @@ namespace Zoo.BusinessLogic.Models.Animals
       return (DateTime.Now - lastFed).TotalSeconds > Config.FeedingFrequency;
     }
 
+      public virtual void NeedsClean()
+      {
+          clean = DateTime.Now;
+      } 
+      
+
     public override string ToString()
     {
       return $"{GetType().Name}, last fed {lastFed}";
+          
     }
   }
 }

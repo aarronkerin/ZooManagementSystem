@@ -17,6 +17,10 @@ namespace Zoo.BusinessLogic.Models
       return animals;
     }
 
+      public void CleanAnimal(Animal animalToClean)
+      {
+          animalToClean.NeedsClean();
+      }
     public void FeedAnimal(Animal animalToFeed)
     {
       animalToFeed.Feed();

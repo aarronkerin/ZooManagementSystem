@@ -21,7 +21,10 @@ namespace Zoo.ConsoleApp
       };
       var otherAnimals = new Animal[] {
         new Rabbit(new DateTime(2014, 1, 1)),
-        new Zebra(new DateTime(2008, 12, 1)) 
+        new Zebra(new DateTime(2008, 12, 1)),
+        new Penguin(new DateTime(2014, 2, 4)),
+        new Giraffe(new DateTime(2006, 3, 5))
+
       };
       var animals = lions.Union<Animal>(otherAnimals).ToList();
 
@@ -33,11 +36,16 @@ namespace Zoo.ConsoleApp
 
       var feedingScheduler = FeedingScheduler.Instance;
       var groomingScheduler = GroomingScheduler.Instance;
+      var cleanScheduler = CleaningScheduler.Instance;
 
       while (true)
       {
+       
         Console.WriteLine("Feeding the animals...");
         feedingScheduler.AssignFeedingJobs(keepers, animals);
+
+        Console.WriteLine("Cleaning the animals...");
+        cleanScheduler.AssignCleaningJobs(keepers, animals);
 
         Console.WriteLine("Grooming the animals...");
         groomingScheduler.AssignGroomingJobs(keepers, animals);
