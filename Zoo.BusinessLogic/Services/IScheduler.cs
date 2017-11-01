@@ -11,6 +11,6 @@ namespace Zoo.BusinessLogic.Services
     public interface IScheduler
     {
         void display();
-        void AssingJobs(IEnumerable<Keeper> keepers, IEnumerable<Animal> animals);
+        void AssignJobs(IEnumerable<Keeper> keepers, IEnumerable<Animal> animals);
     }
 }

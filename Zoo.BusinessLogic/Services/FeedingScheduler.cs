@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters;
 using Zoo.BusinessLogic.Models;
 using Zoo.BusinessLogic.Models.Animals;
 
 namespace Zoo.BusinessLogic.Services
 {
-  public class FeedingScheduler
+  public class FeedingScheduler : IScheduler
   {
     private static FeedingScheduler instance;
 
@@ -26,7 +27,7 @@ namespace Zoo.BusinessLogic.Services
     {
     }
 
-    public void AssignFeedingJobs(IEnumerable<Keeper> keepers, IEnumerable<Animal> animals)
+    public void AssignJobs(IEnumerable<Keeper> keepers, IEnumerable<Animal> animals)
     {
       foreach (var keeper in keepers)
       {
@@ -39,5 +40,14 @@ namespace Zoo.BusinessLogic.Services
         }
       }
     }
+
+        public void display()
+        {
+           Console.WriteLine("Feeding the animals..");
+        }
+
+      
+      
+         
+      }
   }
-}
